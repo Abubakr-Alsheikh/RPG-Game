@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="HowItLook.css" rel="styleSheet">
+    <title>RPG Game</title>
+</head>
+<body>
+    
+    <div class="menu">
+        <p>
+            Welcome To Dragon Slayer
+        </p>
+        <button class="startGame">
+            Start Game
+        </button>
+    </div>
+    <div class="wholeGame">
+        <div class="GameState">
+            <label>Xp:<strong><sapn id="xp">1</sapn></strong></label>
+            <label>Health:<strong><sapn id="health">100</sapn></strong></label>
+            <label>Gold:<strong><sapn id="gold">50</sapn></strong></label>
+        </div>
+        <div class="Contorls">
+            <button id="btnLeft">Go to Store</button>
+            <button id="btnCenter">Go to Cave</button>
+            <button id="btnRight">Fight The Dragon</button>
+        </div>
+        <div class="StateOfGame">
+            <div class="Monster">
+                <label>Monster Name:<strong><sapn id="MonsterName">0</sapn></strong></label>
+                <label>Monster Health:<strong><sapn id="MonsterHealth">0</sapn></strong></label>
+                <label>Level:<strong><sapn id="MonsterLevel">0</sapn></strong></label>
+            </div>
+            <div id="TextArea">
+                Welcome to Dragon Slayer ⚔️.<br>
+                You must defeat the dragon that is preventing people from leaving the town .<br>
+                You are now in the town Square, Where do you want to go?
+            </div>
+        </div>
+
+    </div>
+    <script src="Engine.js"></script>
+</body>
+</html>

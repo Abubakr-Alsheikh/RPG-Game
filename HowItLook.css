@@ -1,0 +1,95 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.15em;
+}
+body {
+    background-color: rgb(117, 164, 200);
+}
+
+/* menu */
+.menu{
+    position: relative;
+    width:50%;
+    margin: 10px auto;
+    font-size: 2em;
+    text-align: center;
+
+}
+.menu .startGame{
+    display: block;
+    margin: auto;
+    width: 400px;
+}
+/* menu */
+
+/* Whole Game */
+.wholeGame {
+    border: 3px solid black;
+    margin: 30px;
+    padding: 20px;
+    background-color: rgba(194, 185, 185, 0.553);
+    border-radius: 10px;
+    position: relative;
+    display: none;
+}
+/* Whole Game */
+
+/* Game State */
+.GameState{
+    border: 3px solid black;
+    padding: 10px;
+}
+
+.GameState label{
+    margin: 20px;
+}
+/* Game State */
+
+/* Contorls */
+.Contorls {
+    border: 3px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.Contorls button , .startGame{
+    padding: 10px;
+    background-color: aquamarine;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: margin-right 4s;
+    width: 25%;
+}
+.Contorls button:hover , .startGame:hover{
+    background-color: rgb(3, 255, 171);
+}
+/* Game Function */
+
+/* State Of Game */
+.StateOfGame {
+    border: 3px solid black;
+    padding: 20px;
+    background-color: black;
+}
+.StateOfGame .Monster {
+    display: none;
+    background-color: rgb(146, 12, 12);
+    color: white;
+    padding: 10px;
+    margin-top: -24.9px;
+}
+
+.StateOfGame .Monster label{
+    margin: 20px;
+}
+
+.StateOfGame #TextArea {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-weight: 900;
+}
+/* State Of Game */
+
