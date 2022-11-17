@@ -97,7 +97,7 @@ let locations = [
     {
         name:"Kill monster",
         "Go to":["Go to Town","Go to Town","Go to Town"],
-        "button functions":[goTown,goTown,goTown],
+        "button functions":[goTown,goTown,easterEgg],
         text:`You killed the monster ☠️`
     },
     {
@@ -111,6 +111,12 @@ let locations = [
         "Go to":["Go to Town","Go to Town","Go to Town"],
         "button functions":[goTown,goTown,goTown],
         text:"You finally do it, you killed the dragon, finally the people can rast🕊️<br>but there are other dragons in this world, so if you can kill them all."
+    },
+    {
+        name:"easter egg",
+        "Go to":["3","7","Go to Town?"],
+        "button functions":[pick3,pick7,goTown],
+        text:"You find an easter egg. you will win 1o gold if you answer correct, choose one number and if you luck your number will show up."
     }
 ];
 
@@ -240,9 +246,12 @@ function attack(){
         healthText.innerHTML = health;
         textArea.innerHTML += `<br>You attacked with ${Wapons[currentWapon].name}.`;
         let ran = Math.random();
+        console.log(ran);
+
         if(ran > 0.2){
             console.log(Wapons[currentWapon].power + Math.round((Math.random() * xp)) + 1);
             monsterHealth -= (Wapons[currentWapon].power + Math.floor((ran * xp)) + 1);
+            
             if(monsterHealth > 0){
                 monsterHealthText.innerHTML = monsterHealth;
             }
@@ -253,8 +262,14 @@ function attack(){
                 else
                     defietMonster();
             }
-        }else
+        }
+        else
             textArea.innerHTML = `OH you missed!`;
+        
+        if(ran <= 0.1 && inventory.length !== 1){
+            textArea.innerHTML = `Oh no... ${inventory.pop()} broke 💔`
+            currentWapon--;
+        }
     }
     else{
         lose();
@@ -284,6 +299,41 @@ function dodge(){
 }
 
 //////////Fight
+
+//////////Easter Egg//////////
+
+function easterEgg(){
+    updateLocation(locations[7]);
+}
+
+function pick3(){
+    pick(3);
+}
+function pick7(){
+    pick(7);
+} 
+function pick(number){
+    let numbers = [];
+    while (numbers.length <10) {
+        numbers.push(Math.floor(Math.random()*11));
+    }
+    textArea.innerHTML = `you choose the number ${number}, and there are the numbers:<br>`;
+    for (let i = 0; i < numbers.length; i++) {
+        textArea.innerHTML += `${numbers[i]} <br>`;
+    }
+    if(numbers[i].indexOf(number) !== -1){
+        textArea.innerHTML += `Correct you win with us '1' Gold 🪙, yeah... i insert (o) by mistick and i am lazy to remove it.`;
+        goldText.innerHTML = gold += 1;
+    }else{
+        textArea.innerHTML += `ummm... I think you have bad luck today.<br> but I have not told you  are going to lose '5' health.`;
+        healthText.innerHTML = health -= 5;
+        if(health <= 0)
+        lose();
+    }
+
+} 
+
+//////////Easter Egg////////// 
 
 /////////End Game////////
 
